@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BE.BE_BLL_Articulos">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_BLL_Articulos.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BE_DAL_Articulos" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BE.BE_DAL_Articulos">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_DAL_Articulos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Articulos">
+    <Position X="2.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Articulos.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BE_BLL_Articulos" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BE.BE_Producto">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Producto.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Materiales">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Materiales.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Suministro">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Suministro.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Persona">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Persona.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Empleado">
+    <Position X="7.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Empleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Cliente">
+    <Position X="9.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Cliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Informe">
+    <Position X="8" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Informe.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="BE_Empleado" />
+      <Property Name="BE_Moviemientos" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BE.BE_Moviemientos">
+    <Position X="5.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Moviemientos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Venta">
+    <Position X="4.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Venta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BE.BE_Compra">
+    <Position X="6.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BE_Compra.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
