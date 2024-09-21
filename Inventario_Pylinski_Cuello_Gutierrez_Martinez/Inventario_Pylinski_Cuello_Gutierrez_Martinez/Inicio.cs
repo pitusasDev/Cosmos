@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SERVICIOS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,26 +17,30 @@ namespace Inventario_Pylinski_Cuello_Gutierrez_Martinez
         public Inicio()
         {
             InitializeComponent();
+            if (SESION.ObtenerInstancia != null)
+            {
+                AdministrarCuenta frm = new AdministrarCuenta();
+                frm.MdiParent = this;
+                frm.MinimizeBox = true;
+                frm.Show();
+            }
         }
 
-        private void Inicio_Load(object sender, EventArgs e)
-        {
 
+        private void MIsesion_Click(object sender, EventArgs e)
+        {
+            var th = new Thread(() => Application.Run(new InicioSesion()));
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+            this.Close();
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MIcerrarSesion_Click(object sender, EventArgs e)
         {
+            SESION.Logout();
+            MessageBox.Show("Chau!");
 
-        }
-
-        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sesionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var th = new Thread(() => Application.Run(new Form1()));
+            var th = new Thread(() => Application.Run(new InicioSesion()));
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
             this.Close();

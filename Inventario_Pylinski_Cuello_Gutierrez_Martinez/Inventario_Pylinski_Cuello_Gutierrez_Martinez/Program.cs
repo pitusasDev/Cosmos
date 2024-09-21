@@ -21,7 +21,7 @@ namespace Inventario_Pylinski_Cuello_Gutierrez_Martinez
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new InicioSesion());
         }
     }
 }

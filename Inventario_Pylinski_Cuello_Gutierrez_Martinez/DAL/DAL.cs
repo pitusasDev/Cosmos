@@ -11,7 +11,7 @@ namespace DAL
 {
     public class DAL
     {
-        public SqlConnection conn = new SqlConnection("server=.;database=Cosmos; integrated security=true");
+        public SqlConnection conn = new SqlConnection("Server=DESKTOP-A6BV1GP;DataBase=Cosmos;User ID=oreo;Password=asd123");
         public SqlCommand cmd;
         public void Conectar()
         {
@@ -21,8 +21,7 @@ namespace DAL
                 {
                     conn.Open();
                 }
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -35,8 +34,7 @@ namespace DAL
                 {
                     conn.Close();
                 }
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -52,10 +50,9 @@ namespace DAL
                 Desconectar();
                 return true;
 
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
-             
+
                 MessageBox.Show(ex.Message);
                 return false;
             }

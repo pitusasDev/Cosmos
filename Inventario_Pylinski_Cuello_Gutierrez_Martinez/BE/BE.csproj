@@ -55,7 +55,6 @@
     <Compile Include="BE_Producto.cs" />
     <Compile Include="BE_Suministro.cs" />
     <Compile Include="BE_Venta.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

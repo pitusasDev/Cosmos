@@ -99,5 +99,15 @@ namespace Inventario_Pylinski_Cuello_Gutierrez_Martinez.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2024_09_20_at_10_04_09_AM {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2024-09-20 at 10.04.09 AM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

@@ -10,10 +10,8 @@ using System.Windows.Forms;
 
 namespace DAL
 {
-    public class DAL_USUARIO:DAL
+    public class DAL_USUARIO : DAL
     {
-
-
         public List<BE_USUARIO> Devolverusuarios()
         {
             DataSet ds = DevolverDataset("SELECT * FROM USUARIO;");
@@ -23,48 +21,67 @@ namespace DAL
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 BE_USUARIO user = new BE_USUARIO(row[3].ToString(), row[4].ToString());
-              //  user.Mymensajes = dm.Devolvermensajesdeusuario(user.Myuser);
+                //  user.Mymensajes = dm.Devolvermensajesdeusuario(user.Myuser);
                 usuarios.Add(user);
-
-
-
-            }
-            return usuarios;
-        }
-        public List<BE_USUARIO> Devolverusuariosmenosactual(string usuario)
-        {
-            DataSet ds = DevolverDataset("SELECT * FROM USUARIO;");
-            List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
-          //  DAL_MENSAJES dm = new DAL_MENSAJES();
-            foreach (DataRow row in ds.Tables[0].Rows)
-            {
-                if (row[1].ToString() != usuario)
-                {
-                    BE_USUARIO user = new BE_USUARIO(row[1].ToString(), row[2].ToString());
-                   //user.Mymensajes = dm.Devolvermensajesdeusuario(user.Myuser);
-                    usuarios.Add(user);
-
-
-                }
 
             }
             return usuarios;
         }
         public BE_USUARIO Recuperarusuario(string usuario)
         {
-            List<BE_USUARIO> lista = Devolverusuarios();
-            BE_USUARIO user = new BE_USUARIO();
-            lista.ForEach((BE_USUARIO u) => {
+            List<BE_USUARIO> listaUsuarios = Devolverusuarios();
+            
+            //Con esta linea nos ahorramos el resto
+            //return listaUsuarios.Find(usuarioEncontrado => usuarioEncontrado.Myuser == usuario);
 
-                 if (u.Myuser == usuario)
+            BE_USUARIO user = new BE_USUARIO();
+            listaUsuarios.ForEach((BE_USUARIO u) =>
+            {
+
+                if (u.Myuser == usuario)
                 {
                     user = u;
 
                 }
-                
+
             });
             return user;
+
         }
+        public bool Verificarexistenciausuario(BE_USUARIO usuario)
+        {
+
+            List<BE_USUARIO> lista = Devolverusuarios();
+
+            //BE_USUARIO user = new BE_USUARIO();
+
+            bool usuarioEncontrado = lista.Any(matchUsuario => matchUsuario.Myuser == usuario.Myuser);
+            return usuarioEncontrado;
+
+        }
+        public bool Validar(BE_USUARIO usuario)
+        {
+            if (Verificarexistenciausuario(usuario))
+            {
+                if (Recuperarusuario(usuario.Myuser).Contra == usuario.Contra)
+                {
+                    return true;
+                } else
+                {
+                    MessageBox.Show("La contraseña ingresada fue incorrecta.");
+                    return false;
+                }
+
+            } else
+            {
+                MessageBox.Show("No existe el usuario indicado.");
+                return false;
+            }
+        }
+
+
+
+        #region ----------------------------------------------------------------------------------- No se usa
         public string Recuperarusuarioporid(int id)
         {
             string consulta = "SELECT Usuario FROM USUARIO WHERE Id = " + id + ";";
@@ -75,22 +92,21 @@ namespace DAL
             Desconectar();
             return usuario.ToString();
         }
-
-        public BE_USUARIO Recuperarusuario(int id)
+        public List<BE_USUARIO> Devolverusuariosmenosactual(string usuario)
         {
             DataSet ds = DevolverDataset("SELECT * FROM USUARIO;");
-            BE_USUARIO user = new BE_USUARIO();
-           // DAL_MENSAJES dm = new DAL_MENSAJES();
-
+            List<BE_USUARIO> usuarios = new List<BE_USUARIO>();
+            //  DAL_MENSAJES dm = new DAL_MENSAJES();
             foreach (DataRow row in ds.Tables[0].Rows)
             {
-                if (Convert.ToInt32(row[0]) == id)
+                if (row[1].ToString() != usuario)
                 {
-                    user = new BE_USUARIO(row[1].ToString(), row[2].ToString());
-                  //  user.Mymensajes = dm.Devolvermensajesdeusuario(user.Myuser);
+                    BE_USUARIO user = new BE_USUARIO(row[1].ToString(), row[2].ToString());
+                    //user.Mymensajes = dm.Devolvermensajesdeusuario(user.Myuser);
+                    usuarios.Add(user);
                 }
             }
-            return user;
+            return usuarios;
         }
 
         public int RecuperarusuarioID(string usuario)
@@ -111,39 +127,22 @@ namespace DAL
 
             return id; // Devuelve el id
         }
-
-        public bool Verificarexistenciausuario(BE_USUARIO usuario)
+        public BE_USUARIO Recuperarusuario(int id)
         {
-
-            List<BE_USUARIO> lista = Devolverusuarios();
-
+            DataSet ds = DevolverDataset("SELECT * FROM USUARIO;");
             BE_USUARIO user = new BE_USUARIO();
-            bool f = lista.Any(becli => usuario.Myuser == usuario.Myuser);
-            return f;
+            // DAL_MENSAJES dm = new DAL_MENSAJES();
 
-        }
-        public bool Validar(BE_USUARIO usuario)
-        {
-            if (Verificarexistenciausuario(usuario))
+            foreach (DataRow row in ds.Tables[0].Rows)
             {
-                if (Recuperarusuario(usuario.Myuser).Contra == usuario.Contra)
+                if (Convert.ToInt32(row[0]) == id)
                 {
-                    return true;
+                    user = new BE_USUARIO(row[1].ToString(), row[2].ToString());
+                    //  user.Mymensajes = dm.Devolvermensajesdeusuario(user.Myuser);
                 }
-                else
-                {
-                    MessageBox.Show("La contraseña ingresada fue incorrecta.");
-                    return false;
-                }
-
             }
-            else
-            {
-                MessageBox.Show("No existe el usuario indicado.");
-                return false;
-            }
+            return user;
         }
-
-        //////////////////////////
+        #endregion
     }
 }

@@ -11,7 +11,7 @@ namespace BE
     {
         private string usuario;
         private string contra;
-      public List<BE_MENSAJE> Mymensajes = new List<BE_MENSAJE>();
+        public List<BE_MENSAJE> Mymensajes = new List<BE_MENSAJE>();
 
         public BE_USUARIO()
         {
@@ -19,7 +19,7 @@ namespace BE
         }
         public BE_USUARIO(string usuario, string contra)
         {
-            this.usuario =usuario.Trim();
+            this.usuario = usuario.Trim();
             this.contra = contra.Trim();
         }
 

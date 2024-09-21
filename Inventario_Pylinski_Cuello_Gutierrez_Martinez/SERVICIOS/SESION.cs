@@ -17,7 +17,7 @@ namespace SERVICIOS
         {
             get
             {
-                if (sesion == null) throw new Exception("Sesion no iniciada");
+                //if (sesion == null) throw new Exception("Sesion no iniciada");
                 return sesion;
             }
         }
@@ -28,10 +28,11 @@ namespace SERVICIOS
                 sesion = new SESION();
                 sesion.usuario = usuario;
                 return true;
-            }
+            } 
             else
             {
-                throw new Exception("Sesion ya iniciada");
+                //throw new Exception("Sesion ya iniciada");
+                return false;
 
             }
 
@@ -42,13 +43,12 @@ namespace SERVICIOS
             {
                 sesion = null;
                 return true;
-            }
-            else
+            } else
             {
                 throw new Exception("Sesion no iniciada");
             }
 
         }
-      
+
     }
 }
